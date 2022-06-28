@@ -18,4 +18,10 @@ meeting_list = []
 for i in range(meeting_num):
     meeting_list.append(tuple(input().split()))
 
-for i in range(meeting_num)
+for i in range(meeting_num):
+    pass
+
+
+'''
+
+'''
