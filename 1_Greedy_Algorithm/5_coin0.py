@@ -19,10 +19,13 @@ count = 0
 max_index = 0
 
 # K보다 작은 coin 중 가장 큰 coin의 인덱스 찾기
-for i in range(n):
-    if k < coin_list[i]:
-        max_index = i-1
-        break
+if k >= coin_list[n-1]:
+    max_index = n-1
+else:
+    for i in range(n):
+        if k < coin_list[i]:
+            max_index = i-1
+            break
 
 # K를 max_index coin부터 나눔 (몫: 필요한 coin 개수(count), 나머지: 갱신되는 K의 값)
 for i in range(max_index, 0, -1):   #coin_list는 오름차순으로 정렬되어 있으므로
