@@ -10,9 +10,15 @@
 '''
 
 n, m = map(int, input().split())
-card = []
+card_list = []
 
 for i in range(n):
-    card[i] = map(int, input().split())
+    card = list(map(int, input().split()))
+    card_list.append(card)
 
-print(card)
+for i in range(n):
+    min_num = 10000
+    if min_num > min(card_list[i]):
+        min_num = min(card_list[i])
+
+print(min_num)

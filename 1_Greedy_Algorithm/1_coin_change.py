@@ -8,7 +8,6 @@ n = int(input("거스름돈을 입력하세요: "))
 coin_list = [500, 100, 50, 10]
 coin_count = 0
 
-
 for coin in coin_list:
     coin_count += n//coin
     n = n % coin
