@@ -19,8 +19,10 @@ count = 0
 max_index = 0
 
 # K보다 작은 coin 중 가장 큰 coin의 인덱스 찾기
+# if 동전의 최댓값이 K보다 작을 경우
 if k >= coin_list[n-1]:
     max_index = n-1
+# if 동전의 최댓값이 K보다 클 경우
 else:
     for i in range(n):
         if k < coin_list[i]:
@@ -28,11 +30,10 @@ else:
             break
 
 # K를 max_index coin부터 나눔 (몫: 필요한 coin 개수(count), 나머지: 갱신되는 K의 값)
-for i in range(max_index, 0, -1):   #coin_list는 오름차순으로 정렬되어 있으므로
+for i in range(max_index, -1, -1):   #coin_list는 오름차순으로 정렬되어 있으므로
     if k == 0:
         break
     count += k//coin_list[i]
     k = k%coin_list[i]
-
 print(count)
 
