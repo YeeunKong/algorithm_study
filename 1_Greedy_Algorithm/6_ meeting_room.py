@@ -24,9 +24,6 @@ meeting_count = 1   #첫번째 회의 끝나는 시간을 바로 end_time으로 
 end_time = meeting_list[0][1]
 
 for i in range(1, n):
-  if meeting_list[n-1][1] == end_time:
-    break
-
   # 다음 회의 시작시간이 이전 끝나는 시간보다 크거나 같으면
   if meeting_list[i][0] >= end_time:
     meeting_count += 1
