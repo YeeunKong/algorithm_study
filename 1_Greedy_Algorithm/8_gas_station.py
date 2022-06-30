@@ -37,13 +37,10 @@ for i in range(city-1):
 
     # low_price_index가 갱신이 안됐다면, 마지막 low_price 도시라는 뜻이니 끝까지 주유함.
     if i == low_price_index:
-        for j in range(i, city-1):
-            cost += price[i] * distance[j]    
+        cost += price[i] * (sum(distance[i:city-1]))
     
     # low_price_index가 갱신 되었다면, low_price_index까지만 기름 넣기
     else:
-        for j in range(i, low_price_index):
-            cost += price[i] * distance[j]
-    # print(low_price_index, cost)
+        cost += price[i] * (sum(distance[i:low_price_index]))
 
 print(cost)
