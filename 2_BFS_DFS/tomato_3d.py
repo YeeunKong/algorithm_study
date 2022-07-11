@@ -9,10 +9,6 @@ dz = [1, -1, 0, 0, 0, 0]
 m, n, h = map(int, input().split())
 graph = [[[] for _ in range(n)] for _ in range(h)]
 
-for i in range(h):
-    for j in range(n):
-        graph[i][j] = list(map(int, input().split()))
-
 queue = deque()
 day = -1
 
@@ -27,26 +23,23 @@ def bfs():
             if (nx<0) or (nx>=m) or (ny<0) or (ny>=n) or (nz<0) or (nz>=h):
                 continue
 
-            if graph[nz][ny][nx] == 0 and graph[nz][ny][nx] != -1:
+            if graph[nz][ny][nx] == 0:
                 queue.append((nx, ny, nz))
                 graph[nz][ny][nx] = graph[z][y][x]+1
 
-
 for z in range(h):
     for y in range(n):
+        graph[z][y] = list(map(int, input().split()))
         for x in range(m):
             if graph[z][y][x] == 1:
                 queue.append((x, y, z))
-
 bfs()
 
 for floor in graph:
     for lst in floor:
         if 0 in lst:
-            day = 0
-            break
-        if max(lst) > day:
-            day = max(lst)
+            print(-1)
+            exit(0)
+        day = max(day, max(lst))
 
 print(day-1)
-
